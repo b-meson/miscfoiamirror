@@ -7,8 +7,8 @@
 import ocr_utils
 import numpy
 
-foia_response = '1505deposists1.1.pdf' 
-png_response = '1505deposists1.1.png'
+foia_response = '1505deposists1.40.pdf' 
+png_response = '1505deposists1.40.png'
 
 all_text=[]
 all_text.append(ocr_utils.ocr_image(png_response))
@@ -57,3 +57,13 @@ for row in data:
 # print len(inputs)
 # print len (review)
 print outputs
+
+
+# Output data into txt file
+newfile=foia_response[:-4]
+print "Outputting data in " + newfile
+target = open(newfile,'w')
+finaldata=str(outputs)
+target.write(finaldata)
+target.write("\n")
+target.close()
