@@ -1,9 +1,11 @@
 import os
 import sys
 import subprocess
-from PIL import Image
 import pytesseract
+from pytesseract import image_to_string
+from PIL import Image
 import PyPDF2
+import commands
 
 
 """
@@ -89,8 +91,8 @@ def ocr_image(filename):
     Returns:
         text: String, output text
     """
-
     im = Image.open(filename)
+    tsseract_cmd='/usr/bin/pytesseract'
     text = pytesseract.image_to_string(im)
     
     return text
