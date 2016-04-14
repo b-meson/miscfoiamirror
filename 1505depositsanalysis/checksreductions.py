@@ -19,16 +19,14 @@ for row in data:
     if row.split() == []:    pass
     else:    
         inputs.append(row.split()[2])
-print inputs 
 
-# check which checks require review and mark them
-
+# check which checks require review and mark them for review
 review=[]
 # create new array and flag which amounts require review
 for amounts in inputs:
-    if (amounts[:2]=='13' or amounts[:2]=='16' or amounts[:2]=='18' or amounts[:2]=='($') or amounts[:2]=='(3':
+    if (amounts[:2]=='(0' or amounts=='($1,'):
         review.append('True')
     else: review.append('False')
 
-totals=numpy.concatenate([inputs,review], axis=1)
-print totals[:,None].shape
+truple=list(zip(inputs,review))
+print truple

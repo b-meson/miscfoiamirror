@@ -6,7 +6,7 @@ import Image
 import pytesseract 
 import ocr_utils
 
-foia_response = '1505deposists1.1.pdf' 
+foia_response = '1505deposists1.pdf' 
 ocr_utils.split_pdf(foia_response)
 
 num_page_start = 1
@@ -26,10 +26,11 @@ data=all_text[0].split('\n')
 # for each data set you should read in the amounts 
 
 reviewed=[]
-for row in data:
+# inputs moved to checkanalysis.py
+#for row in data:
+#
+#    if row.split() == []:    pass
+#    else:    
+#        inputs.append(row.split()[2])
 
-    if row.split() == []:    pass
-    else:    
-        inputs.append(row.split()[2])
-
-print inputs
+#print inputs

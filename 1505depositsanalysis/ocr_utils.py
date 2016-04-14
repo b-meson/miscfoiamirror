@@ -72,7 +72,7 @@ def convert_to_png(filename):
         result_filename: String, output PDF file
     """
 
-    pdfconvertcmd = 'gs -sDEVICE=pngalpha -r400 -o {}.png {}'.format(
+    pdfconvertcmd = 'gs -sDEVICE=pngalpha -r600 -o {}.png {}'.format(
         get_stem(filename), filename)
     result_filename = '{}.png'.format(get_stem(filename))
     subprocess.call(pdfconvertcmd, shell=True)
