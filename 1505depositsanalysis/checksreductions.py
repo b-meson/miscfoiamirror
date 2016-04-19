@@ -7,8 +7,8 @@
 import ocr_utils
 import numpy
 
-foia_response = '1505deposists1.40.pdf' 
-png_response = '1505deposists1.40.png'
+foia_response = '1505deposists1.49.pdf' 
+png_response = '1505deposists1.49.png'
 
 all_text=[]
 all_text.append(ocr_utils.ocr_image(png_response))
