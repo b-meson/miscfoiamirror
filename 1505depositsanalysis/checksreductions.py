@@ -19,9 +19,10 @@ data=all_text[0].split('\n')
 inputs=[]
 for row in data:
     if row.split() == []:    pass
-    else:    
+    try:    
         inputs.append(row.split()[2])
-
+    except IndexError:
+        inputs.append('null')
 # check which checks require review and mark them for review
 review=[]
 # create new array and flag which amounts require review
