@@ -7,8 +7,7 @@
 import ocr_utils
 import numpy
 
-foia_response = '1505deposists1.49.pdf' 
-png_response = '1505deposists1.49.png'
+png_response = '1505deposists2.1.png'
 
 all_text=[]
 all_text.append(ocr_utils.ocr_image(png_response))
@@ -32,19 +31,13 @@ char_remove = ['(', '$', ')']
 outputs = []
 for amounts in inputs:
     amounts = str(amounts)
-    if (amounts[:2]=='(0' or amounts=='($1,'):
+    if (amounts[:2]=='(0' or amounts=='($1,') or amounts[0]=='3':
         review_status = True
     else:
         review_status = False
 
     for char in char_remove:
 	amounts = amounts.replace(char, '')
-
-#    try:
-#        amt = float(amounts)
-#    except:
-#        continue
-
     outputs.append( (amounts, review_status) )
 
 dates=[]
@@ -61,7 +54,7 @@ print outputs
 
 
 # Output data into txt file
-newfile=foia_response[:-4]
+newfile=png_response[:-4]
 print "Outputting data in " + newfile
 target = open(newfile,'w')
 finaldata=str(outputs)
