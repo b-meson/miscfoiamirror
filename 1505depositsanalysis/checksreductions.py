@@ -7,17 +7,19 @@
 import ocr_utils
 import numpy
 
-png_response = '1505deposists2.2.png'
+png_response = '1505deposists2.83.png'
 
 all_text=[]
 all_text.append(ocr_utils.ocr_image(png_response))
 
 data=all_text[0].split('\n')
 
-# for each data set you should read in the amounts 
+# for each data set you should read in the amounts
+# row.split()[2] should work for *most* cases but there are 
+# edge cases where [0] is required i.e. 1505deposits2.8.png
 inputs=[]
 for row in data:
-    if row.split() == []:    pass
+    if row.split() == []: pass
     try:    
         inputs.append(row.split()[2])
     except IndexError:
@@ -37,7 +39,7 @@ for amounts in inputs:
         review_status = False
 
     for char in char_remove:
-	amounts = amounts.replace(char, '')
+        amounts = amounts.replace(char, '')
     outputs.append( (amounts, review_status) )
 
 dates=[]
@@ -50,12 +52,12 @@ for row in data:
 # print len(dates)
 # print len(inputs)
 # print len (review)
-print outputs
+print(outputs)
 
 
 # Output data into txt file
 newfile=png_response[:-4]
-print "Outputting data in " + newfile
+print("Outputting data in " + newfile)
 target = open(newfile,'w')
 finaldata=str(outputs)
 target.write(finaldata)
