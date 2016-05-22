@@ -2,15 +2,15 @@
 # i.e. convert -density 300 -trim <file>.pdf -quality 100 -sharpen 0x1.0 M <image>.png
 # density > 250 leads to poor image recogition. 
 
-import Image 
+#import Image 
 import pytesseract 
 import ocr_utils
 
-foia_response = '1505deposists1.pdf' 
+foia_response = '1505deposists2.pdf' 
 ocr_utils.split_pdf(foia_response)
 
 num_page_start = 1
-num_page_end = 49
+num_page_end = 86
 all_text = []
 data=[]
 

@@ -7,7 +7,7 @@
 import ocr_utils
 import numpy
 
-png_response = '1505deposists2.1.png'
+png_response = '1505deposists2.2.png'
 
 all_text=[]
 all_text.append(ocr_utils.ocr_image(png_response))

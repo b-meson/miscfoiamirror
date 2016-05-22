@@ -34,7 +34,7 @@ def split_pdf(filename):
     return None
 
 
-def rotate_pdf(filename, rotation_angle=270):
+def rotate_pdf(filename, rotation_angle=0):
     """Take a PDF, rotate it and saves as {filename}_rotated.pdf
     
     Args: 
@@ -74,7 +74,7 @@ def convert_to_png(filename):
         result_filename: String, output PDF file
     """
 
-    pdfconvertcmd = 'gs -sDEVICE=pngalpha -r600 -o {}.png {}'.format(
+    pdfconvertcmd = 'gs -sDEVICE=pngalpha -r900 -o {}.png {}'.format(
         get_stem(filename), filename)
     result_filename = '{}.png'.format(get_stem(filename))
     subprocess.call(pdfconvertcmd, shell=True)
